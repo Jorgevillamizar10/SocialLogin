@@ -11,7 +11,7 @@ const handleSocialLoginFailure = (err) => {
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <SocialButton
         provider='facebook'
         appId='1093250811128737'
@@ -19,6 +19,15 @@ function App() {
         onLoginFailure={handleSocialLoginFailure}
       >
         Login with Facebook
+      </SocialButton>
+
+      <SocialButton
+        provider='linkedin'
+        appId='78xszo6gtvp5ip'
+        onLoginSuccess={handleSocialLogin}
+        onLoginFailure={handleSocialLoginFailure}
+      >
+        Login with Linkend
       </SocialButton>
     </div>
   );
