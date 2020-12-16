@@ -2,7 +2,8 @@ import './App.css';
 import SocialButton from './component/SocialButton';
 
 const handleSocialLogin = (user) => {
-  console.log(user.token)
+  console.log(user.provider)
+  console.log(user.token.accessToken)
 }
 
 const handleSocialLoginFailure = (err) => {
@@ -21,14 +22,14 @@ function App() {
         Login with Facebook
       </SocialButton>
 
-      <SocialButton
-        provider='linkedin'
-        appId='6AYOEm3iTEolQFrW'
-        onLoginSuccess={handleSocialLogin}
-        onLoginFailure={handleSocialLoginFailure}
-      >
-        Login with Linkend
-      </SocialButton>
+        <SocialButton
+          provider='linkedin'
+          appId='6AYOEm3iTEolQFrW'
+          onLoginSuccess={handleSocialLogin}
+          onLoginFailure={handleSocialLoginFailure}
+        >
+          Login with LinkedIn
+        </SocialButton>
 
       <SocialButton
         provider='google'
