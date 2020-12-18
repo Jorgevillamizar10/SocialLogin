@@ -1,12 +1,24 @@
 import './App.css';
 import SocialButton from './component/SocialButton';
+import { LinkedIn } from 'react-linkedin-login-oauth2';
+// import { LinkedInPage } from './component/SocialButtonLinkdn';
 
 const handleSocialLogin = (user) => {
   console.log(user.token)
 }
 
 const handleSocialLoginFailure = (err) => {
-  console.error(err)
+  console.error(err);
+}
+
+const handleSuccess = (data) => {
+  console.log(data);
+  console.log("hola");
+}
+
+const handleFailure = (error) => {
+  console.log(error.errorMessage);
+  console.log("chao");
 }
 
 function App() {
@@ -21,14 +33,14 @@ function App() {
         Login with Facebook
       </SocialButton>
 
-      <SocialButton
-        provider='linkedin'
-        appId='6AYOEm3iTEolQFrW'
-        onLoginSuccess={handleSocialLogin}
-        onLoginFailure={handleSocialLoginFailure}
+      <LinkedIn
+        clientId="78xszo6gtvp5ip"
+        onFailure={handleFailure}
+        onSuccess={handleSuccess}
+        redirectUri="http://localhost:3000/linkedin"
       >
-        Login with Linkend
-      </SocialButton>
+        Inicia con LinkedIn
+      </LinkedIn>
 
       <SocialButton
         provider='google'
